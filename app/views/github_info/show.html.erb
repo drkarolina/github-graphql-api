@@ -16,7 +16,7 @@
                 <% @github_repos.each do |repos| %>
                     <tr>
                         <td colspan="2" style="text-align:center">
-                            <%= link_to  repos["name"], repos["url"], class:"link-dark" %>
+                            <%= link_to  repos["name"], repos["url"], class:"link-dark", target:"_blank" %>
                         </td>
                     </tr>
                 <%end%>
