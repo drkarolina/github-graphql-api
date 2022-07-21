@@ -1,0 +1,2 @@
+class GithubInfoController < ApplicationController
+end
