@@ -1,0 +1,11 @@
+<div class="container col-10  col-lg-8 offset-lg-2 d-flex justify-content-center">
+    <%= form_tag(show_path, :method => "get") do %>
+    <div class="input-group input-group-lg mt-3 ">
+        <%= search_field_tag :gh_login, params[:gh_login], 
+                                    placeholder: "GitHub LogIn",
+                                    class:"form-control",
+                                    required: true %>
+        <%= button_tag "Search", type: "submit", class:"btn btn-outline-success", name: nil %>
+    </div>
+    <% end %>
+</div>
