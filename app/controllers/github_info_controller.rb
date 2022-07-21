@@ -11,8 +11,7 @@ class GithubInfoController < ApplicationController
             @github_name = @query_result["data"]["user"]["name"]
             @github_repos = @query_result["data"]["user"]["repositories"]["nodes"]
         else
-            flash[:notice] = "Oops! Something went wrong!"
-            redirect_to root_path
+            redirect_to root_path, notice: "Oops! Something went wrong!"
         end
     end
 
