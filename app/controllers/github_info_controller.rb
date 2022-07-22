@@ -3,7 +3,7 @@
 require 'graphql/client'
 require 'graphql/client/http'
 class GithubInfoController < ApplicationController
-  before_action :get_github_data, only: [:show]
+  before_action :github_data, only: [:show]
   def index; end
 
   def show
@@ -14,7 +14,7 @@ class GithubInfoController < ApplicationController
 
   private
 
-  def get_github_data
+  def github_data
     @query_result = CLIENT.query(GITHUB_QUERY, variables: { username: params[:gh_login] }).to_h
     redirect_to root_path, notice: @query_result['errors'][0]['message'] if @query_result.key?('errors')
   end
@@ -42,6 +42,6 @@ class GithubInfoController < ApplicationController
                 }
             }
         }
-    } 
+    }
   GRAPHQL
 end
