@@ -19,11 +19,10 @@ class GithubInfoController < ApplicationController
     redirect_to root_path, notice: @query_result['errors'][0]['message'] if @query_result.key?('errors')
   end
 
-  GITHUB_ACCESS_TOKEN = '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'
   HTTP = GraphQL::Client::HTTP.new('https://api.github.com/graphql') do
     def headers(_context)
       {
-        'Authorization' => "Bearer #{GITHUB_ACCESS_TOKEN}"
+        'Authorization' => "Bearer #{GithubGraphqlApi::Application.credentials.github_access_token}"
       }
     end
   end
