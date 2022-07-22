@@ -5,7 +5,7 @@ class GithubInfoController < ApplicationController
     end
 
     def show
-        @query_result = Client.query(IndexQuery, variables: {username: params[:gh_login]}).to_h
+        @query_result = CLIENT.query(GITHUB_QUERY, variables: {username: params[:gh_login]}).to_h
         if @query_result["data"]["user"]
             @github_login = @query_result["data"]["user"]["login"]
             @github_name = @query_result["data"]["user"]["name"]
@@ -25,10 +25,10 @@ class GithubInfoController < ApplicationController
         end
     end 
     
-    Client = GraphQL::Client.new(schema: GraphQL::Client.load_schema("db/schema.json"), 
+    CLIENT = GraphQL::Client.new(schema: GraphQL::Client.load_schema("db/schema.json"), 
                                  execute: HTTP)
     
-    IndexQuery = Client.parse <<-'GRAPHQL'
+    GITHUB_QUERY = CLIENT.parse <<-'GRAPHQL'
     query($username: String!) {
         user(login: $username) {
             login
