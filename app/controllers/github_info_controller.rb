@@ -17,8 +17,7 @@ class GithubInfoController < ApplicationController
 
     private
     GITHUB_ACCESS_TOKEN = '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'
-    URL = 'https://api.github.com/graphql'
-    HTTP = GraphQL::Client::HTTP.new(URL) do
+    HTTP = GraphQL::Client::HTTP.new('https://api.github.com/graphql') do
         def headers(context)
           { 
             "Authorization" => "Bearer #{GITHUB_ACCESS_TOKEN}",
@@ -26,8 +25,8 @@ class GithubInfoController < ApplicationController
         end
     end 
     
-    Schema = GraphQL::Client.load_schema("db/schema.json")
-    Client = GraphQL::Client.new(schema: Schema, execute: HTTP)
+    Client = GraphQL::Client.new(schema: GraphQL::Client.load_schema("db/schema.json"), 
+                                 execute: HTTP)
     
     IndexQuery = Client.parse <<-'GRAPHQL'
     query($username: String!) {
