@@ -1,24 +1,5 @@
-# README
+# GitHub GraphQL API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rails app for fetching GitHub data (name and repositories) remotely from the GitHub GraphQL API. 
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Set GitHub API access token as github_access_token in credentials.yml.enc for running locally. 
