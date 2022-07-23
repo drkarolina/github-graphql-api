@@ -28,7 +28,7 @@ group :development do
   gem 'web-console', '>= 4.1.0'
 end
 group :production do
-  gem 'pg'
+  gem 'pg', '~> 1.4', '>= 1.4.1'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
