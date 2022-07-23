@@ -27,5 +27,8 @@ group :development do
   gem 'spring'
   gem 'web-console', '>= 4.1.0'
 end
+group :production do
+  gem 'pg'
+end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
